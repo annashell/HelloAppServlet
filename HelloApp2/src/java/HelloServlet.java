@@ -65,10 +65,10 @@ public class HelloServlet extends HttpServlet {
         Enumeration<String> parameters = request.getParameterNames();
         String fullName = (String)parameters.nextElement();
         String[] paramValue = request.getParameterValues(fullName);
-        if(paramValue[0]==""){
-            //response.sendRedirect("index.html");
-            RequestDispatcher rd=getServletContext().getRequestDispatcher("index.html");
-            rd.forward(request,response);
+        if(paramValue[0].isEmpty()){
+            response.sendRedirect("index.html");
+            //RequestDispatcher rd=getServletContext().getRequestDispatcher("index.html");
+            //rd.forward(request,response);
         } else {
             out.println("Hello, " + paramValue[0]);
         }          
